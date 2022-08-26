@@ -10,12 +10,18 @@ const generarJWT = ( uid, name ) => {
       expiresIn: '2h'
     }, (err, token) => {
 
-      if ( err ) {
+      try {
+        resolve( token );
+      } catch (error) {
         console.log(err);
         reject('Nose pudo generar el token')
       }
+      // if ( err ) {
+      //   console.log(err);
+      //   reject('Nose pudo generar el token')
+      // }
 
-      resolve( token );
+      // resolve( token );
 
     })
 
